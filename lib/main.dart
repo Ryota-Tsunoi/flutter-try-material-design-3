@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:try_material_design_3/components/clock/clock.dart';
+import 'package:try_material_design_3/components/scaffold/default_scaffold.dart';
 
 void main() {
   runApp(
@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
     initializeDateFormatting('ja');
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
         primarySwatch: Colors.blue,
@@ -33,12 +34,10 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
-      ),
-      body: const Center(
-        child: Clock(),
+    return DefaultScaffold(
+      title: runtimeType.toString(),
+      body: Center(
+        child: Text(runtimeType.toString()),
       ),
     );
   }

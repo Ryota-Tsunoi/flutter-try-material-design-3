@@ -10,10 +10,7 @@ class Clock extends ConsumerWidget {
     final clock = ref.watch(clockProvider.select((value) => value));
     return Text(
       clock,
-      style: const TextStyle(
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
-      ),
+      style: const TextStyle(fontSize: 16, color: Colors.grey),
     );
   }
 }
