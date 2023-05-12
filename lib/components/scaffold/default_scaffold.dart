@@ -5,11 +5,13 @@ class DefaultScaffold extends StatelessWidget {
   const DefaultScaffold({
     required this.title,
     required this.body,
+    this.floatingActionButton,
     super.key,
   });
 
   final String title;
   final Widget body;
+  final FloatingActionButton? floatingActionButton;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,7 @@ class DefaultScaffold extends StatelessWidget {
       appBar: DefaultAppbar(title: title),
       drawer: const Drawer(),
       body: body,
+      floatingActionButton: floatingActionButton,
     );
   }
 }

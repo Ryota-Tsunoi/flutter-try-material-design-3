@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:try_material_design_3/components/scaffold/default_scaffold.dart';
+import 'package:try_material_design_3/features/todo/pages/todo_page.dart';
 
 void main() {
   runApp(
@@ -34,11 +34,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultScaffold(
-      title: runtimeType.toString(),
-      body: Center(
-        child: Text(runtimeType.toString()),
-      ),
-    );
+    return const ToDoPage();
   }
 }
