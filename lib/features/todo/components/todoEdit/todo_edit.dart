@@ -14,6 +14,7 @@ class ToDoEdit extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final notifier = ref.watch(todoProvider.notifier);
     final titleTextController = useTextEditingController(text: toDoItem?.title);
+    final memoTextController = useTextEditingController(text: toDoItem?.memo);
     final title = toDoItem == null ? "TODO作成" : "TODO編集";
     final submitButtonTitle = toDoItem == null ? "作成" : "更新";
 
@@ -27,7 +28,20 @@ class ToDoEdit extends HookConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+              decoration: const InputDecoration(
+                labelText: "タイトル",
+                labelStyle: TextStyle(color: Colors.grey),
+              ),
               controller: titleTextController,
+            ),
+            TextField(
+              decoration: const InputDecoration(
+                labelText: "メモ",
+                labelStyle: TextStyle(color: Colors.grey),
+              ),
+              keyboardType: TextInputType.multiline,
+              maxLines: null,
+              controller: memoTextController,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -35,12 +49,15 @@ class ToDoEdit extends HookConsumerWidget {
                 child: Text(submitButtonTitle),
                 onPressed: () {
                   if (toDoItem == null) {
-                    notifier.addToDo(titleTextController.text);
+                    notifier.addToDo(
+                      titleTextController.text,
+                      memoTextController.text,
+                    );
                   } else {
                     notifier.editToDo(
-                      ToDoItem(
-                        id: toDoItem!.id,
+                      toDoItem!.copyWith(
                         title: titleTextController.text,
+                        memo: memoTextController.text,
                       ),
                     );
                   }

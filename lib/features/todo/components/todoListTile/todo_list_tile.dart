@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl/intl.dart';
 
 import '../../models/todo_item.dart';
 import '../../providers/todo_provider.dart';
@@ -18,12 +19,27 @@ class ToDoListTile extends ConsumerWidget {
       child: Card(
         child: ListTile(
           title: Text(todoItem.title),
-          subtitle: Text(
-            todoItem.id,
-            style: const TextStyle(
-              color: Colors.grey,
-              fontSize: 12,
-            ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "メモ: ${todoItem.memo.replaceAll(RegExp(r'\s'), ' ')}",
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 12,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                "作成日: ${DateFormat.yMMMEd("ja").format(todoItem.createdAt)}",
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 12,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
           ),
           trailing: Row(
             mainAxisSize: MainAxisSize.min,

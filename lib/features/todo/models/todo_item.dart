@@ -8,6 +8,8 @@ class ToDoItem with _$ToDoItem {
   const factory ToDoItem({
     required String id,
     required String title,
+    @Default("") String memo,
+    required DateTime createdAt,
   }) = _ToDoItem;
 
   factory ToDoItem.fromJson(Map<String, dynamic> json) =>

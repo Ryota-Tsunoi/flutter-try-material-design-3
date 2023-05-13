@@ -22,6 +22,8 @@ ToDoItem _$ToDoItemFromJson(Map<String, dynamic> json) {
 mixin _$ToDoItem {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  String get memo => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +36,7 @@ abstract class $ToDoItemCopyWith<$Res> {
   factory $ToDoItemCopyWith(ToDoItem value, $Res Function(ToDoItem) then) =
       _$ToDoItemCopyWithImpl<$Res, ToDoItem>;
   @useResult
-  $Res call({String id, String title});
+  $Res call({String id, String title, String memo, DateTime createdAt});
 }
 
 /// @nodoc
@@ -52,6 +54,8 @@ class _$ToDoItemCopyWithImpl<$Res, $Val extends ToDoItem>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? memo = null,
+    Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -62,6 +66,14 @@ class _$ToDoItemCopyWithImpl<$Res, $Val extends ToDoItem>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      memo: null == memo
+          ? _value.memo
+          : memo // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
@@ -73,7 +85,7 @@ abstract class _$$_ToDoItemCopyWith<$Res> implements $ToDoItemCopyWith<$Res> {
       __$$_ToDoItemCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String title});
+  $Res call({String id, String title, String memo, DateTime createdAt});
 }
 
 /// @nodoc
@@ -89,6 +101,8 @@ class __$$_ToDoItemCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? memo = null,
+    Object? createdAt = null,
   }) {
     return _then(_$_ToDoItem(
       id: null == id
@@ -99,6 +113,14 @@ class __$$_ToDoItemCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      memo: null == memo
+          ? _value.memo
+          : memo // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -106,7 +128,11 @@ class __$$_ToDoItemCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ToDoItem implements _ToDoItem {
-  const _$_ToDoItem({required this.id, required this.title});
+  const _$_ToDoItem(
+      {required this.id,
+      required this.title,
+      this.memo = "",
+      required this.createdAt});
 
   factory _$_ToDoItem.fromJson(Map<String, dynamic> json) =>
       _$$_ToDoItemFromJson(json);
@@ -115,10 +141,15 @@ class _$_ToDoItem implements _ToDoItem {
   final String id;
   @override
   final String title;
+  @override
+  @JsonKey()
+  final String memo;
+  @override
+  final DateTime createdAt;
 
   @override
   String toString() {
-    return 'ToDoItem(id: $id, title: $title)';
+    return 'ToDoItem(id: $id, title: $title, memo: $memo, createdAt: $createdAt)';
   }
 
   @override
@@ -127,12 +158,15 @@ class _$_ToDoItem implements _ToDoItem {
         (other.runtimeType == runtimeType &&
             other is _$_ToDoItem &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.title, title) || other.title == title));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.memo, memo) || other.memo == memo) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title);
+  int get hashCode => Object.hash(runtimeType, id, title, memo, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -150,7 +184,10 @@ class _$_ToDoItem implements _ToDoItem {
 
 abstract class _ToDoItem implements ToDoItem {
   const factory _ToDoItem(
-      {required final String id, required final String title}) = _$_ToDoItem;
+      {required final String id,
+      required final String title,
+      final String memo,
+      required final DateTime createdAt}) = _$_ToDoItem;
 
   factory _ToDoItem.fromJson(Map<String, dynamic> json) = _$_ToDoItem.fromJson;
 
@@ -158,6 +195,10 @@ abstract class _ToDoItem implements ToDoItem {
   String get id;
   @override
   String get title;
+  @override
+  String get memo;
+  @override
+  DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
   _$$_ToDoItemCopyWith<_$_ToDoItem> get copyWith =>

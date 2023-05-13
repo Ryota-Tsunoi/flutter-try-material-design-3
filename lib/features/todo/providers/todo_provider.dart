@@ -9,8 +9,13 @@ class ToDoNotifier extends Notifier<List<ToDoItem>> {
     return [];
   }
 
-  void addToDo(String title) {
-    final addingToDo = ToDoItem(id: const Uuid().v4(), title: title);
+  void addToDo(String title, String memo) {
+    final addingToDo = ToDoItem(
+      id: const Uuid().v4(),
+      title: title,
+      memo: memo,
+      createdAt: DateTime.now(),
+    );
     state = [...state, addingToDo];
   }
 
