@@ -1,30 +1,37 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:try_material_design_3/features/todo/repositories/hive/hive_todo_repository.dart';
 import 'package:uuid/uuid.dart';
 
 import '../models/todo_item.dart';
 
 class ToDoNotifier extends Notifier<List<ToDoItem>> {
+  late final HiveToDoRepository _repository;
   @override
   List<ToDoItem> build() {
-    return [];
+    final box = ref.read(todoBoxProvider);
+    _repository = HiveToDoRepository(box);
+    return _repository.findMany();
   }
 
   void addToDo(String title, String memo) {
-    final addingToDo = ToDoItem(
+    final todoItem = ToDoItem(
       id: const Uuid().v4(),
       title: title,
       memo: memo,
       createdAt: DateTime.now(),
     );
-    state = [...state, addingToDo];
+    _repository.createOne(todoItem);
+    state = _repository.findMany();
   }
 
   void editToDo(ToDoItem toDoItem) {
-    state = state.map((e) => e.id == toDoItem.id ? toDoItem : e).toList();
+    _repository.updateOne(toDoItem);
+    state = _repository.findMany();
   }
 
   void removeToDo(String id) {
-    state = state.where((e) => e.id != id).toList();
+    _repository.deleteOne(id);
+    state = _repository.findMany();
   }
 }
 

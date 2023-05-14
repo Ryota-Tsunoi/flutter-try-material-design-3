@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:try_material_design_3/features/todo/pages/todo_page.dart';
 
-void main() {
+import 'features/todo/repositories/hive/hive_todo_repository.dart';
+
+Future<void> main() async {
+  await Hive.initFlutter();
+  final box = await Hive.openBox<Map<dynamic, dynamic>>('todo');
   runApp(
-    const ProviderScope(
-      child: MyApp(),
+    ProviderScope(
+      overrides: [
+        todoBoxProvider.overrideWithValue(box),
+      ],
+      child: const MyApp(),
     ),
   );
 }
