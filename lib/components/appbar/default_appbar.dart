@@ -13,13 +13,18 @@ class DefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(title),
-          const Clock(),
-        ],
-      ),
+      title: LayoutBuilder(builder: (context, constraints) {
+        if (constraints.maxWidth < 500) {
+          return Text(title);
+        }
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(title),
+            const Clock(),
+          ],
+        );
+      }),
     ); // Your custom widget implementation.
   }
 }
