@@ -38,20 +38,16 @@ It will also implement simple features that may be essential to the Flutter proj
 
 ## Setup
 
-- install fvm
+- install [fvm](https://fvm.app/)
 
 ```shell
-  dart pub global activate fvm
-  # or
-  # brew tap leoafarias/fvm
-  # brew install fvm
-```
+dart pub global activate fvm
+# or
+# brew tap leoafarias/fvm
+# brew install fvm
 
-- if you needs to add path, please add this.
-
-```shell
-  ## add to your enviroment variables.
-  export PATH="$PATH:$HOME/.pub-cache/bin"
+## add to your enviroment variables.
+export PATH="$PATH:$HOME/.pub-cache/bin"
 ```
 
 - install [volta](https://volta.sh/)
@@ -76,6 +72,17 @@ yarn install
 
 ```shell
 fvm flutter pub get
+```
+
+- install [monarch](https://monarchapp.io/)
+  make sure you have Xcode installed.
+
+```shell
+cd ~/your/app/path
+curl -O https://d148mrbia1nlbw.cloudfront.net/macos/monarch_macos_2.1.8.zip
+unzip monarch_macos_2.1.8.zip
+## add to your enviroment variables.
+export PATH=$PATH:~/your/app/path/monarch/bin
 ```
 
 ## Commands
@@ -108,4 +115,10 @@ fvm dart format lib
 
 ```shell
 fvm flutter analyze
+```
+
+### Run Storybook(use Monarch)
+
+```shell
+monarch run
 ```

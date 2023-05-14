@@ -1,6 +1,7 @@
 targets:
   $default:
     sources:
+      - stories/**
       - $package$
       - lib/**
       # - stories/**
