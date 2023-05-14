@@ -120,5 +120,5 @@ fvm flutter analyze
 ### Run Storybook(use Monarch)
 
 ```shell
-monarch run
+monarch run --reload hot-restart
 ```
