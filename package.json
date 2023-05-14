@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.2"
+  },
+  "lint-staged": {
+    "*.dart": [
+      "fvm dart format lib",
+      "fvm flutter analyze lib",
+      "fvm flutter test lib"
+    ]
+  },
+  "volta": {
+    "node": "18.16.0",
+    "yarn": "1.22.19"
+  }
+}
