@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:try_material_design_3/features/todo/models/todo_item.dart';
 
+import '../../models/todo_item.dart';
 import '../../notifiers/todo_notifier.dart';
 
 class ToDoEdit extends HookConsumerWidget {

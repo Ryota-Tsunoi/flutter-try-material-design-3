@@ -20,5 +20,5 @@ class DateTimeNotifier extends Notifier<String> {
   }
 }
 
-final clockProvider =
+final clockNotifierProvider =
     NotifierProvider<DateTimeNotifier, String>(() => DateTimeNotifier());
