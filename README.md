@@ -13,32 +13,6 @@ It will also implement simple features that may be essential to the Flutter proj
   - macos
   - linux
 
-## Assumptions
-
-- This project manages the FlutterSDK with FVM.Please install FVM before tinkering with this project.
-  ```shell
-  dart pub global activate fvm
-  # or
-  # brew tap leoafarias/fvm
-  # brew install fvm
-  ```
-- Don't forget to add it to your PATH!
-  ```shell
-  # example
-  export PATH="$PATH:$HOME/.pub-cache/bin"
-  ```
-
-## Run
-
-1. This project manages the FlutterSDK with FVM.Please execute the following command to install the FlutterSDK for your project.
-   ```shell
-   fvm install
-   ```
-2. You can launch the application in any way you like, either from running and debugging VSCode or from the Flutter command.
-   ```shell
-   fvm flutter run -d <YOUR_TARGET_DEVICE>
-   ```
-
 ## Directory structure
 
 - We plan to expand it in the future, but for now it consists of the following
@@ -62,9 +36,76 @@ It will also implement simple features that may be essential to the Flutter proj
 └── main.dart
 ```
 
-## Help
+## Setup
 
-- How to generate freezed/json_serialize model (eg: **.freezed.dart, **.g.dart)
-  ```shell
-  fvm flutter pub run build_runner build --delete-conflicting-outputs
-  ```
+- install fvm
+
+```shell
+  dart pub global activate fvm
+  # or
+  # brew tap leoafarias/fvm
+  # brew install fvm
+```
+
+- if you needs to add path, please add this.
+
+```shell
+  ## add to your enviroment variables.
+  export PATH="$PATH:$HOME/.pub-cache/bin"
+```
+
+- install [volta](https://volta.sh/)
+
+```shell
+curl https://get.volta.sh | bash
+```
+
+- install yarm
+
+```shell
+volta install yarn
+```
+
+- package insall for husky
+
+```shell
+yarn install
+```
+
+- flutter package install
+
+```shell
+fvm flutter pub get
+```
+
+## Commands
+
+### Run
+
+```shell
+fvm flutter run -d <"target_device">
+```
+
+### Build
+
+```shell
+fvm flutter build <"target_platform">
+```
+
+### Test
+
+```shell
+fvm flutter test lib
+```
+
+### Format
+
+```shell
+fvm dart format lib
+```
+
+### Lint
+
+```shell
+fvm flutter analyze
+```
