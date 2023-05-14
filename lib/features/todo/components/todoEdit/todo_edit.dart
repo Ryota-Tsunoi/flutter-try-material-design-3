@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:try_material_design_3/features/todo/models/todo_item.dart';
 
-import '../../providers/todo_provider.dart';
+import '../../notifiers/todo_notifier.dart';
 
 class ToDoEdit extends HookConsumerWidget {
   const ToDoEdit({this.toDoItem, super.key});
@@ -12,7 +12,7 @@ class ToDoEdit extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notifier = ref.watch(todoProvider.notifier);
+    final notifier = ref.watch(todoNotifierProvider.notifier);
     final titleTextController = useTextEditingController(text: toDoItem?.title);
     final memoTextController = useTextEditingController(text: toDoItem?.memo);
     final title = toDoItem == null ? "TODO作成" : "TODO編集";

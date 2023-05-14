@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 
 import '../../models/todo_item.dart';
-import '../../providers/todo_provider.dart';
+import '../../notifiers/todo_notifier.dart';
 import '../todoEdit/todo_edit.dart';
 
 class ToDoListTile extends ConsumerWidget {
@@ -13,7 +13,7 @@ class ToDoListTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notifier = ref.watch(todoProvider.notifier);
+    final notifier = ref.watch(todoNotifierProvider.notifier);
     return Padding(
       padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
       child: Card(

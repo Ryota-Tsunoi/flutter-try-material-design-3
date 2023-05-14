@@ -8,5 +8,6 @@
   // ファイル監視対象からFVMのファイルを除外します。(任意)
   "files.watcherExclude": {
     "**/.fvm": true
-  }
+  },
+  "dart.allowTestsOutsideTestFolder": true
 }

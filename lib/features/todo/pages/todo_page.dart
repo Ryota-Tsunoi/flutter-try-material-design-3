@@ -4,14 +4,14 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../components/scaffold/default_scaffold.dart';
 import '../components/todoEdit/todo_edit.dart';
 import '../components/todoListTile/todo_list_tile.dart';
-import '../providers/todo_provider.dart';
+import '../notifiers/todo_notifier.dart';
 
 class ToDoPage extends ConsumerWidget {
   const ToDoPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(todoProvider);
+    final state = ref.watch(todoNotifierProvider);
     return DefaultScaffold(
       title: "TODO一覧",
       body: state.isEmpty
