@@ -10,7 +10,7 @@ import '../../repositories/hive/hive_todo_repository.dart';
 import 'todo_edit.dart';
 
 void main() {
-  late final Box<Map<dynamic, dynamic>> box;
+  late Box<Map<dynamic, dynamic>> box;
 
   setUp(() async {
     await setUpTestHive();

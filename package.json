@@ -9,8 +9,7 @@
   "lint-staged": {
     "*.dart": [
       "fvm dart format lib",
-      "fvm flutter analyze lib",
-      "fvm flutter test lib"
+      "fvm flutter analyze lib"
     ]
   },
   "volta": {

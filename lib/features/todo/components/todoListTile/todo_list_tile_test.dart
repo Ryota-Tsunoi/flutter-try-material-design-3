@@ -12,9 +12,10 @@ import 'todo_list_tile.dart';
 void main() {
   late final Box<Map<dynamic, dynamic>> box;
 
+  setUpAll(() => initializeDateFormatting('ja'));
+
   setUp(() async {
     await setUpTestHive();
-    initializeDateFormatting('ja');
     box = await Hive.openBox<Map<dynamic, dynamic>>('todo');
   });
 
